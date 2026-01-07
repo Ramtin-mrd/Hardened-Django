@@ -1,4 +1,4 @@
-heredoc> # Secure Django Deployment (Hardened Container)
+## Secure Django Deployment (Hardened Container)
 
 This project demonstrates a **Production-Ready, High-Security** deployment for Django using Docker. It focuses on infrastructure hardening to prevent unauthorized access and system modifications.
 
