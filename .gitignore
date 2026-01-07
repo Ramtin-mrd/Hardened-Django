@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+venv/
+docker/secrets/
+db.sqlite3
+*.log
+.DS_Store

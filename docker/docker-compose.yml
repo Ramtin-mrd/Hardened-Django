@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  django:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: secure-django-app
+    # پل متحرک: اتصال مرورگر شما به اپلیکیشن
+    ports:
+      - "8000:8000"
+    command: gunicorn --bind 0.0.0.0:8000 wsgi:application
+    read_only: true
+    tmpfs:
+      - /var/log/django:uid=1000
+      - /var/run/django:uid=1000
+      - /tmp:uid=1000
+    environment:
+      - DJANGO_SECRET_KEY=django-insecure-test-key
+      - PYTHONPATH=/app
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          memory: 512M
